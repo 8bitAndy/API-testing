@@ -1,11 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>API Test</title>
 </head>
+
 <body>
     <h1>Hello world</h1>
+    <script>
+        const apiUrl = "https://swapi.dev/api/planets/1/";
+        console.log("hello world");
+
+        // Make a GET request
+        fetch(apiUrl)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log(data);
+                console.log(data.name);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+
+    </script>
 </body>
+
 </html>
